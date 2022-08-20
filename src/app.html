@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz-Example</title>
+  <link href="https://fonts.googleapis.com/css?family=Silkscreen"/>
+
+    <!-- Basic style -->
+    <style>
+        
+        .item-container {
+            margin: 20px auto;
+            width: 50%;
+            text-align: center ;
+            
+            
+        }
+
+        .btn-container {
+            text-align: ;
+        }
+
+        li {
+            display: inline-block;
+            padding: 20px;
+            
+        }
+
+        .selected {
+            background-color: rgb(25, 121, 211);
+            color: ivory;
+        }
+      
+      .QuestionLabel{
+        text-align: center;
+      }
+      .img {
+        text-align: center;
+      }
+      .Answ{
+        text-align: center;
+      }
+      
+
+        .next {
+            outline: none;
+            padding: 12px;
+            border: none;
+            background-color: rgb(25, 121, 211);
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+        }
+      .h2_1{
+        font-family: silkscreen;
+      }
+    </style>
+
+
+</head>
+
+<body>
+  <div class="QuestionLabel">
+    <h2 class="h2_1">
+      Who is this?
+    </h2>
+  </div>
+  <div class="img">
+    <img src="" name="canvas" style="width:200px"/>
+  </div>
+  <div class="Answ">
+    
+    <button onclick="checkBezos()">
+      Jeff Bezos
+    </button>
+    <button onclick="checkElon()">
+      Elon Musk
+    </button>
+      
+    <button onclick="checkJobs()">
+      Steve Jobs
+    </button>
+    <button onclick="checkMeta()">
+      Mark Zuckerberg
+    </button>
+    
+  </div>
+  
+    <!-- HTML code for next and previous button -->
+    
+    <div class="item-container">
+
+        <ul>
+            <li>Q1</li>
+            <li>Q2</li>
+            <li>Q3</li>
+            <li>Q4</li>
+            
+        </ul>
+
+        <div class="btn-container">
+           
+            <button class="next" onclick="next()">Next</button>
+        </div>
+    </div>
+
+    <!-- Javascript code for next and previous button -->
+    <script>
+
+        let children = document.querySelector('ul').children;
+        let i = -1;
+
+        children[i].classList.add('selected');// Item default selection
+
+        function resetClass() {
+            for (let j = 0; j < children.length; j++) {
+                children[j].classList.remove('selected');
+            }
+        }
+
+        function next() {
+            if (i >= children.length - 1) {
+                return false;
+            }
+            resetClass();
+            i++;
+            children[i].classList.add('selected')
+            console.log(i);
+            if (i == 0) {
+              document.canvas.src="img/bezos.png";
+              console.log(i);
+            }
+            else if (i == 1) {
+              document.canvas.src="img/elon.png";
+              console.log(i);
+            }
+            else if (i == 2) {
+              document.canvas.src="img/jobs.png";
+              console.log(i);
+            }
+            
+            else if (i == 3) {
+              document.canvas.src="img/zuckerberg.png";
+              console.log(i);
+            }
+            
+           
+          
+            
+        }
+
+        function previous() {
+            if (i <= 0) {
+                return false;
+            }
+            resetClass();
+            i--;
+            children[i].classList.add('selected')
+        }
+        var wrong = 0;
+        var correct = 0;
+        function checkBezos(){
+          if (i == 0) {
+            alert("correct! ;)");
+            correct++;
+            next()
+          }else {
+            alert("wrong! :( ");
+            wrong++;
+          }
+        }
+        function checkElon(){
+          if (i == 1) {
+            alert("correct! ;)");
+            correct++;
+            next()
+          }else  {
+            alert("wrong! :( ");
+            wrong++;
+            
+          }
+        }
+        function checkJobs(){
+          if (i == 2) {
+            alert("correct! ;)");
+            correct++;
+            next()
+          }else  {
+            alert("wrong! :( ");
+            wrong++;
+            
+          }
+        }
+        function checkMeta(){
+          if (i == 3) {
+            alert("correct! ;)");
+            correct++;
+            next()
+          }else  {
+            alert("wrong! :(");
+            wrong++;
+            
+          }
+        }
+        
+       
+
+    </script>
+
+</body>
+
+</html>
