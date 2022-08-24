@@ -38,6 +38,7 @@
         text-align: center;
         
         
+        
       }
       button{border-radius: 20px;
             background-color: cyan;}
@@ -58,6 +59,24 @@
             color: white;
             cursor: pointer;
         }
+      .answBtn:hover {
+
+background: #ff96ad;
+
+box-shadow: 0 0 5px #ff96ad, 0 0 25px
+
+#ff96ad, 0 0 50px #ff96ad, 0 0 200px #ff96ad;
+
+}
+      .next:hover {
+
+background: #ff96ad;
+
+box-shadow: 0 0 5px #ff96ad, 0 0 25px
+
+#ff96ad, 0 0 50px #ff96ad, 0 0 200px #ff96ad;
+
+}
       .h2_1{
         font-family: silkscreen;
       }
@@ -79,19 +98,19 @@
   <div class="Answ">
     
     
-    <button onclick="checkElon()">
+    <button class="answBtn" onclick="checkElon()">
       Elon Musk
     </button>
     
-    <button onclick="checkBezos()">
+    <button class="answBtn" onclick="checkBezos()">
       Jeff Bezos
     </button>
        
-    <button onclick="checkMeta()">
+    <button class="answBtn" onclick="checkMeta()">
       Mark Zuckerberg
     </button>
 
-    <button onclick="checkJobs()">
+    <button class="answBtn" onclick="checkJobs()">
       Steve Jobs
     </button>
     
@@ -110,13 +129,14 @@
         </ul>
 
         <div class="btn-container">
-           
-            <button class="next" onclick="next()">Next</button>
+           <button class="next" onclick="next()" id="togglee">Start</button>
+            
         </div>
     </div>
 
     <!-- Javascript code for next and previous button -->
     <script>
+        
 
         let children = document.querySelector('ul').children;
         let i = -1;
@@ -128,7 +148,7 @@
                 children[j].classList.remove('selected');
             }
         }
-
+        
         function next() {
             if (i >= children.length - 1) {
                 return false;
@@ -154,6 +174,7 @@
               document.canvas.src="img/zuckerberg.png";
               console.log(i);
             }
+            document.getElementById('togglee').style.visibility = 'hidden';
             
            
           
@@ -206,12 +227,14 @@
           if (i == 3) {
             alert("correct! ;)");
             correct++;
-            next()
           }else  {
             alert("wrong! :(");
             wrong++;
             
           }
+        }
+        if  (i==4){
+          alert("Correct: " + correct + "Wrong: " + wrong );
         }
         
        
