@@ -13,6 +13,7 @@
     <link href='https://fonts.googleapis.com/css?family=Annie Use Your Telescope' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Caesar Dressing' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Michroma' rel='stylesheet'>
    <!-- Basic style -->
     <style>
     
@@ -96,6 +97,24 @@ box-shadow: 0 0 5px #ff0000, 0 0 25px
         font-family: 'Annie Use Your Telescope';
         font-size: 45px;
       }
+      .made{
+        font-family: 'Michroma';
+        font-color: cyan;
+        
+        
+      }
+      .made:hover {
+
+background: #ff0000;
+
+box-shadow: 0 0 5px #ff0000, 0 0 25px
+
+#ff0000, 0 0 50px #ff0000, 0 0 200px #ff0000;
+
+}
+      .cw{font-family: "Michroma";
+         }
+  
       
     </style>
 
@@ -143,54 +162,65 @@ box-shadow: 0 0 5px #ff0000, 0 0 25px
             <li>Q4</li>
             
         </ul>
+        <p id="correct" class=cw></p>
+        <p id="wrong" class=cw></p>
 
-        <div class="btn-container">
-           <button class="next" onclick="next()" id="togglee">Start</button>
-            
-        </div>
+
+    
+        <a href="https://mypage.longvu10.repl.co/">
+          <p class="made">Made by K-DEVELOPMENT</p>
+        </a>
+        
     </div>
 
     <!-- Javascript code for next and previous button -->
     <script>
+       
+       function print(string) {
+         console.log(string);
+       }
         
 
         let children = document.querySelector('ul').children;
-        let i = -1;
+        let i = 0;
 
-        children[i].classList.add('selected');// Item default selection
-
+        //children[i].classList.add('selected');
+        next();
         function resetClass() {
             for (let j = 0; j < children.length; j++) {
                 children[j].classList.remove('selected');
+                print(j);
             }
         }
         
         function next() {
-            if (i >= children.length - 1) {
+            if (i >= 5) {
+                console.log("Finished with next()")
                 return false;
             }
             resetClass();
-            i++;
             children[i].classList.add('selected')
-            console.log(i);
-            if (i == 0) {
-              document.canvas.src="img/bezos.png";
-              console.log(i);
-            }
-            else if (i == 1) {
-              document.canvas.src="img/elon.png";
-              console.log(i);
+            console.log("I = "+i);
+            i++;
+            if (i == 1) {
+              document.canvas.src="img/Example-quiz/bezos.png";
+              console.log("I = "+i);
             }
             else if (i == 2) {
-              document.canvas.src="img/jobs.png";
-              console.log(i);
+              document.canvas.src="img/Example-quiz/elon.png";
+              console.log("I = "+i);
+            }
+            else if (i == 3) {
+              document.canvas.src="img/Example-quiz/jobs.png";
+              console.log("I = "+i);
             }
             
-            else if (i == 3) {
-              document.canvas.src="img/zuckerberg.png";
-              console.log(i);
+            else if (i == 4) {
+              document.canvas.src="img/Example-quiz/zuckerberg.png";
+              console.log("I = "+i);
             }
-            document.getElementById('togglee').style.visibility = 'hidden';
+            
+            //i++;
             
            
           
@@ -207,49 +237,68 @@ box-shadow: 0 0 5px #ff0000, 0 0 25px
         }
         var wrong = 0;
         var correct = 0;
+        document.getElementById("correct").innerHTML = "Correct: "+correct;
+        document.getElementById("wrong").innerHTML = "Incorrect: "+wrong;
         function checkBezos(){
-          if (i == 0) {
+          if (i == 1) {
             alert("correct! ;)");
             correct++;
+            document.getElementById("correct").innerHTML = "Correct: "+correct;
+            document.getElementById("wrong").innerHTML = "Incorrect: "+wrong;
             next()
           }else {
             alert("wrong! :( ");
             wrong++;
+            document.getElementById("correct").innerHTML = "Correct: "+correct;
+            document.getElementById("wrong").innerHTML = "Incorrect: "+wrong;
+            
           }
         }
         function checkElon(){
-          if (i == 1) {
+          if (i == 2) {
             alert("correct! ;)");
             correct++;
+            document.getElementById("correct").innerHTML = "Correct: "+correct;
+            document.getElementById("wrong").innerHTML = "Incorrect: "+wrong;
             next()
           }else  {
             alert("wrong! :( ");
+            document.getElementById("correct").innerHTML = "Correct: "+correct;
+            document.getElementById("wrong").innerHTML = "Incorrect: "+wrong;
             wrong++;
             
           }
         }
         function checkJobs(){
-          if (i == 2) {
+          if (i == 3) {
             alert("correct! ;)");
             correct++;
+            document.getElementById("correct").innerHTML = "Correct: "+correct;
+            document.getElementById("wrong").innerHTML = "Incorrect: "+wrong;
             next()
           }else  {
             alert("wrong! :( ");
+            document.getElementById("correct").innerHTML = "Correct: "+correct;
+            document.getElementById("wrong").innerHTML = "Incorrect: "+wrong;
             wrong++;
             
           }
         }
         function checkMeta(){
-          if (i == 3) {
+          if (i == 4) {
             alert("correct! ;)");
             correct++;
+            document.getElementById("correct").innerHTML = "Correct: "+correct;
+            document.getElementById("wrong").innerHTML = "Incorrect: "+wrong;
           }else  {
             alert("wrong! :(");
             wrong++;
-            
+            document.getElementById("correct").innerHTML = "Correct: "+correct;
+            document.getElementById("wrong").innerHTML = "Incorrect: "+wrong;
           }
         }
-        if  (i==4){
+        if  (i==5){
+          console.log("Correct: " + correct + "Wrong: " + wrong );
           alert("Correct: " + correct + "Wrong: " + wrong );
         }
         

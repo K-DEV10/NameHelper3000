@@ -9,7 +9,7 @@
    <div class = "down">
      <a href="src/app.html">
        <button class = "j">
-         Going .
+         PLAY !
          
        </button>
      </a>
@@ -29,10 +29,12 @@
   
   
   .select1{
-    font-family: 'Bangers'
+    font-family: 'Bangers';
+    font-size: 45px;
+    border-radius: 50px;
   } 
   .down {
-    text-align: right;
+    
   }
   .j{
     font-size: 45px;
@@ -40,7 +42,7 @@
     font-family: 'Bangers'
   }
   .left {
-    text-align: left;
+    
     font-size: 50px;
     
   }
